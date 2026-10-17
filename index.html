@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pousse — Mange bien, sans cuisiner</title>
+  <meta name="description" content="Cinq menus healthy, cuisinés le matin et livrés à vélo en 30 minutes. Livraison offerte dès 20 €.">
+  <meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21V11' stroke='%2334C759' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M12 12C12 6 7 4 4 5c0 5 4 7 8 7z' fill='%2334C759'/%3E%3Cpath d='M12 10c0-5 4-7 8-6 0 5-4 6-8 6z' fill='%2334C759'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="topbar glass">
+    <div class="topbar__inner wrap">
+      <a class="brand" href="#accueil" aria-label="Pousse, retour à l'accueil">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 21V11" stroke="#34C759" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M12 12C12 6 7 4 4 5c0 5 4 7 8 7z" fill="#34C759"/>
+          <path d="M12 10c0-5 4-7 8-6 0 5-4 6-8 6z" fill="#34C759"/>
+        </svg>
+        Pousse
+      </a>
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#menus">Menus</a>
+        <a href="#comment">Comment ça marche</a>
+        <a href="#histoire">Notre histoire</a>
+      </nav>
+      <button class="btn btn--primary btn--small" type="button" id="cart-link" aria-controls="panier">Commander</button>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <section id="accueil" class="hero wrap">
+      <div class="stage">
+        <div class="stage__text">
+          <h1 class="title">
+            <span class="line" style="--i:0">Mange bien,</span>
+            <span class="line" style="--i:1">sans cuisiner.</span>
+          </h1>
+          <p class="lede">Cinq menus healthy, cuisinés le matin et livrés à vélo en 30 minutes.</p>
+          <div class="stage__actions">
+            <a class="btn btn--primary" href="#menus">Voir les menus</a>
+            <a class="btn btn--soft" href="#comment">Comment ça marche</a>
+          </div>
+          <div class="delivery glass stage__card">
+            <div class="bowl" style="--a:#D9A066;--b:#F2D16B;--c:#7FB069;--d:#FFF4DF" aria-hidden="true"></div>
+            <div class="delivery__text">
+              <p class="delivery__title">Bowl poulet, quinoa, avocat</p>
+              <p class="delivery__status">Ton livreur est en route</p>
+            </div>
+            <p class="delivery__time">12 min</p>
+          </div>
+        </div>
+
+        <div class="phone" aria-hidden="true">
+          <p class="phone__head">Menus</p>
+          <div class="phone__row"><span class="bowl bowl--sm" style="--a:#7FB069;--b:#F2D16B;--c:#F28C6B;--d:#FFF4DF"></span>Riz complet, saumon, edamame</div>
+          <div class="phone__row"><span class="bowl bowl--sm" style="--a:#B9895A;--b:#D8C7A0;--c:#8FBF6A;--d:#FFF4DF"></span>Falafels, houmous, taboulé</div>
+          <div class="phone__row"><span class="bowl bowl--sm" style="--a:#E0A267;--b:#F4A259;--c:#7FB069;--d:#FFF4DF"></span>Poulet mariné, patate douce, brocoli</div>
+          <div class="delivery glass delivery--float">
+            <div class="bowl" style="--a:#D9A066;--b:#F2D16B;--c:#7FB069;--d:#FFF4DF"></div>
+            <div class="delivery__text">
+              <p class="delivery__title">Bowl poulet, quinoa, avocat</p>
+              <p class="delivery__status">Ton livreur est en route</p>
+            </div>
+            <p class="delivery__time">12 min</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menus" class="section wrap">
+      <div class="menus__inner">
+        <p class="eyebrow">Nos menus</p>
+        <h2 class="section__title">Cinq menus, cuisinés ce matin.</h2>
+
+        <div class="tabs" id="tabs" role="tablist" aria-label="Menus"></div>
+
+        <div class="menus__layout">
+          <div class="menus__main">
+            <p class="menu__idea" id="menu-idea"></p>
+            <div role="tabpanel" id="menu-panel">
+              <ul class="dishes" id="dishes"></ul>
+            </div>
+          </div>
+
+          <aside class="cart sheet glass glass--thick" id="panier" aria-labelledby="panier-titre">
+            <div class="sheet__grab" aria-hidden="true"></div>
+            <div class="cart__head">
+              <h2 class="cart__title" id="panier-titre" tabindex="-1">Panier</h2>
+              <button class="sheet__close" type="button" data-close>Fermer</button>
+            </div>
+            <p class="cart__empty" id="cart-empty">Votre panier est vide.</p>
+            <ul class="cart__lines" id="cart-lines"></ul>
+            <p class="cart__delivery" id="cart-delivery"></p>
+            <div class="cart__total">
+              <span>Total</span>
+              <span class="cart__sum" id="cart-sum">0,00 €</span>
+            </div>
+            <button class="btn btn--primary cart__order" type="button" id="cart-order">Commander</button>
+            <p class="cart__status" id="cart-status" role="status"></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="comment" class="section wrap">
+      <p class="eyebrow">Le principe</p>
+      <h2 class="section__title">Comment ça marche</h2>
+      <ol class="steps">
+        <li class="step">
+          <span class="step__num">1</span>
+          <h3 class="step__title">Choisis ton menu</h3>
+          <p class="step__text">Équilibre, protéines, végétal, léger ou petit-déjeuner. Chaque plat affiche ses kcal et ses protéines.</p>
+        </li>
+        <li class="step">
+          <span class="step__num">2</span>
+          <h3 class="step__title">On cuisine le matin</h3>
+          <p class="step__text">Nos cuisiniers préparent les repas du jour dès l'aube, sans rien qu'on ne mangerait pas nous-mêmes.</p>
+        </li>
+        <li class="step">
+          <span class="step__num">3</span>
+          <h3 class="step__title">Un livreur à vélo</h3>
+          <p class="step__text">Il arrive en 30 minutes. La livraison est offerte dès 20 €.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="histoire" class="section wrap story">
+      <div class="story__intro">
+        <p class="eyebrow">Notre histoire</p>
+        <h2 class="section__title">Née dans une colocation, un dimanche soir.</h2>
+        <p class="story__text">Inès, étudiante en diététique, avait préparé douze repas pour la semaine. Avant la fin du dîner, ses colocataires lui demandaient déjà de recommencer.</p>
+      </div>
+      <ol class="timeline">
+        <li class="timeline__item">
+          <span class="timeline__num">1</span>
+          <p class="timeline__date">Automne 2024</p>
+          <h3 class="timeline__title">La cuisine d'Inès</h3>
+          <p class="timeline__text">Douze repas préparés le dimanche. Plus un seul le mercredi.</p>
+        </li>
+        <li class="timeline__item">
+          <span class="timeline__num">2</span>
+          <p class="timeline__date">Printemps 2025</p>
+          <h3 class="timeline__title">Karim, livreur à vélo</h3>
+          <p class="timeline__text">Il remarque que la plupart des commandes qu'il porte tard le soir sont des repas gras. Il propose son vélo.</p>
+        </li>
+        <li class="timeline__item">
+          <span class="timeline__num">3</span>
+          <p class="timeline__date">Été 2025</p>
+          <h3 class="timeline__title">Trente repas, trois heures</h3>
+          <p class="timeline__text">Un week-end de vente dans leur résidence. Tout est parti avant le goûter.</p>
+        </li>
+        <li class="timeline__item">
+          <span class="timeline__num">4</span>
+          <p class="timeline__date">Aujourd'hui</p>
+          <h3 class="timeline__title">Cinq menus</h3>
+          <p class="timeline__text">Une cuisine, des livreurs à vélo, et la règle d'Inès : rien qu'elle ne mangerait pas elle-même.</p>
+        </li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="footer wrap">
+    <div class="footer__inner">
+      <a class="brand" href="#accueil">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 21V11" stroke="#34C759" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M12 12C12 6 7 4 4 5c0 5 4 7 8 7z" fill="#34C759"/>
+          <path d="M12 10c0-5 4-7 8-6 0 5-4 6-8 6z" fill="#34C759"/>
+        </svg>
+        Pousse
+      </a>
+      <p>Mange bien, sans cuisiner.</p>
+      <p>Pousse est une application fictive. Démo : rien n'est commandé.</p>
+    </div>
+  </footer>
+
+  <nav class="tabbar glass" aria-label="Navigation mobile">
+    <a class="tabbar__link" href="#menus">Menus</a>
+    <a class="tabbar__link" href="#histoire">Histoire</a>
+    <button class="tabbar__link tabbar__cart" type="button" id="tab-cart" aria-controls="panier">
+      Panier <span class="badge" id="tab-badge" hidden>0</span>
+    </button>
+  </nav>
+
+  <div class="veil" id="veil" aria-hidden="true"></div>
+
+  <section class="sheet detail glass glass--thick" id="detail" role="dialog" aria-modal="true" aria-labelledby="detail-titre">
+    <div class="sheet__grab" aria-hidden="true"></div>
+    <div class="cart__head">
+      <span></span>
+      <button class="sheet__close" type="button" data-close>Fermer</button>
+    </div>
+    <div class="detail__body">
+      <div class="bowl bowl--lg" id="detail-bowl" aria-hidden="true"></div>
+      <div class="detail__text">
+        <h2 class="detail__name" id="detail-titre" tabindex="-1"></h2>
+        <p class="detail__desc" id="detail-desc"></p>
+        <p class="dish__stats" id="detail-stats"></p>
+      </div>
+    </div>
+    <div class="detail__foot">
+      <span class="dish__price" id="detail-price"></span>
+      <button class="btn btn--primary" type="button" id="detail-add">Ajouter au panier</button>
+    </div>
+  </section>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
