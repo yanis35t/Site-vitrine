@@ -4,7 +4,7 @@ export default function Marquee() {
   const row = [...items, ...items];
 
   return (
-    <div className="overflow-hidden bg-flame py-5 text-ink">
+    <div className="w-full max-w-full overflow-hidden bg-flame py-5 text-ink">
       <div className="animate-marquee flex w-max gap-10 whitespace-nowrap font-display text-5xl uppercase md:text-7xl">
         {row.map((item, index) => (
           <span key={index} className="flex items-center gap-10">

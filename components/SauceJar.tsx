@@ -251,10 +251,13 @@ function Scene({ progress }: { progress: Progress }) {
 }
 
 export default function SauceJar({ progress }: { progress: Progress }) {
+  // Pull the camera back on portrait screens so the whole jar fits
+  const isPortrait = typeof window !== "undefined" && window.innerWidth < 768;
+
   return (
     <Canvas
       dpr={[1, 2]}
-      camera={{ position: [0, 0.2, 5.4], fov: 34 }}
+      camera={{ position: [0, 0.2, isPortrait ? 7.4 : 5.4], fov: 34 }}
       gl={{ antialias: true, alpha: true }}
     >
       <Scene progress={progress} />
