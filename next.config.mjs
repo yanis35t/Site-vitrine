@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ['three'],
+  output: 'export',
 };
 
 export default nextConfig;
